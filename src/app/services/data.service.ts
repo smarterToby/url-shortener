@@ -13,6 +13,8 @@ export class DataService {
   constructor(private http: HttpClient) {
   }
 
+  private urls = this.getAllUrls();
+
   //handle error
   handleError(error: any) {
     let errorMessage = '';
