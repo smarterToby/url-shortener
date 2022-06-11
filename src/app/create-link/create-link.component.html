@@ -1,1 +1,11 @@
-<p>create-link works!</p>
+<div class="app-light" >
+
+  <label for="fullUrl">URL:</label>
+  <input type="text" id="fullUrl" [(ngModel)]="url"/>
+
+
+  <button type="submit" (click)="createLink()">Short URL</button>
+  <button type="submit" (click)="getUrls()">Get</button>
+  <span *ngIf="shortUrl">{{shortUrl}}</span>
+
+</div>

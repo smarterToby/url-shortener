@@ -10,7 +10,14 @@ export class DataService {
 
   private api_url = 'https://st-api-url-shortener.herokuapp.com/api/v1/';
 
-  constructor(private http: HttpClient) {
+  // private api_url = 'http://localhost:5000/api/v1/';
+
+  constructor(
+    private http: HttpClient
+  ) {
+  }
+
+  ngOnInit() {
   }
 
   private urls = this.getAllUrls();
@@ -38,58 +45,45 @@ export class DataService {
       );
   }
 
-  //get fullUrl by shortUrl
-  getUrlDataByShortUrl(shortUrl: string): Observable<any> {
-    return this.http.get(this.api_url + 'urls/' + shortUrl)
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      );
+
+  getShortUrl(fullUrl: string) {
+    let tmpfullUrl = fullUrl.replace(/\//g, '|');
+    return this.http.get(this.api_url + 'urls/' + tmpfullUrl + '/short-url');
   }
 
-  //get clicks by shortUrl
-  getClicks(shortUrl: string): Observable<any> {
-    return this.http.get(this.api_url + 'urls/' + shortUrl + '/clicks')
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      );
+  getUrl(shortUrl: string) {
+    return this.http.get(this.api_url + 'urls/' + shortUrl);
   }
 
-  //get fullUrl by shortUrl
-  getFullUrl(shortUrl: string): Observable<any> {
-    return this.http.get(this.api_url + 'urls/' + shortUrl + '/full-url')
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      );
-  }
-
-  //get shortUrl by fullUrl
-  getShortUrl(fullUrl: string): Observable<any> {
-    return this.http.get(this.api_url + 'urls/' + fullUrl + '/short-url')
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      );
-  }
 
   //create new url
-  createUrl(fullUrl: string): Observable<any> {
-    return this.http.post(this.api_url + 'createUrl', {fullUrl: fullUrl})
-      .pipe(
-        retry(1),
-        catchError(this.handleError)
-      );
+  createUrl(fullUrl: string) {
+    console.log("in service")
+    console.log(fullUrl)
+    return this.http.post<any>(this.api_url + 'createUrl', {"fullUrl": fullUrl})
+
   }
 
   //update clicks by shortUrl
   updateClicks(shortUrl: string): Observable<any> {
-    return this.http.put(this.api_url + 'clicks/add' + shortUrl, {})
+    return this.http.put(this.api_url + 'clicks/add/' + shortUrl, {})
       .pipe(
         retry(1),
         catchError(this.handleError)
       );
   }
 
+  isUrlAvailable(shortUrl: string): Observable<any> {
+    return this.http.get(this.api_url + 'urls/' + shortUrl + '/isAvailable')
+      .pipe(
+        retry(1),
+        catchError(this.handleError)
+      );
+  }
+
+  getFullUrl(shortUrl: string) {
+    return this.http.get(this.api_url + 'urls/' + shortUrl + '/full-url');
+  }
 }
+
+

@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
-import {Router} from "@angular/router";
+import {ActivatedRoute, Router} from "@angular/router";
+import {DataService} from "../services/data.service";
 
 @Component({
   selector: 'app-short-url',
@@ -8,9 +9,26 @@ import {Router} from "@angular/router";
 })
 export class ShortUrlComponent implements OnInit {
 
-  constructor() {}
+  constructor(
+    private router: Router,
+    private service: DataService,
+    private activedRoute: ActivatedRoute
+  ) { }
 
-  ngOnInit(): void {
+
+  ngOnInit() {
+
+    let urlToRoute: string = this.activedRoute.snapshot.paramMap.get('shortUrl')!;
+    this.service.updateClicks(urlToRoute);
+
+    this.service.getFullUrl(urlToRoute).subscribe((response: any) => {
+      this.router.navigate(['/'], {skipLocationChange: true}).then(
+        result => {
+          history.replaceState({}, '', response);
+          window.location.href = response;
+        }
+      );
+    });
   }
 
 

@@ -1,0 +1,24 @@
+:root{
+  --dark: #313442;
+  --light: #ffffff;
+}
+
+.app-light {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--light);
+  color: black;
+}
+
+.app-dark {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: var(--dark);
+  color: white;
+}
