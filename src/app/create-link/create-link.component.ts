@@ -22,19 +22,10 @@ export class CreateLinkComponent implements OnInit {
   createLink() {
     this.linkService.createUrl(this.url).subscribe(
       (response: any) => {
-        console.log(response);
         this.shortUrl = response.short_url;
-        console.log(this.shortUrl);
       }
     );
 
   }
 
-
-  getUrls() {
-    this.linkService.getAllUrls().subscribe(
-      data => {
-
-     });
-  }
 }

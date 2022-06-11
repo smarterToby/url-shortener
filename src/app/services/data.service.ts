@@ -8,9 +8,8 @@ import {catchError, retry} from 'rxjs/operators';
 })
 export class DataService {
 
-  private api_url = 'https://st-api-url-shortener.herokuapp.com/api/v1/';
-
-  // private api_url = 'http://localhost:5000/api/v1/';
+  // private api_url = 'https://st-api-url-shortener.herokuapp.com/api/v1/';
+  private api_url = 'http://localhost:5000/api/v1/';
 
   constructor(
     private http: HttpClient
@@ -58,8 +57,6 @@ export class DataService {
 
   //create new url
   createUrl(fullUrl: string) {
-    console.log("in service")
-    console.log(fullUrl)
     return this.http.post<any>(this.api_url + 'createUrl', {"fullUrl": fullUrl})
 
   }
