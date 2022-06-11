@@ -24,7 +24,7 @@ export class ShortUrlComponent implements OnInit {
     this.service.getFullUrl(urlToRoute).subscribe((response: any) => {
       this.router.navigate(['/'], {skipLocationChange: true}).then(
         result => {
-          history.replaceState({}, '', response);
+          // history.replaceState({}, '', response);
           window.location.href = response;
         }
       );
