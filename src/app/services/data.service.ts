@@ -8,8 +8,8 @@ import {catchError, retry} from 'rxjs/operators';
 })
 export class DataService {
 
-  // private api_url = 'https://st-api-url-shortener.herokuapp.com/api/v1/';
-  private api_url = 'http://localhost:5000/api/v1/';
+  private api_url = 'https://st-api-url-shortener.herokuapp.com/api/v1/';
+  // private api_url = 'http://localhost:5000/api/v1/';
 
   constructor(
     private http: HttpClient
