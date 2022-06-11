@@ -32,7 +32,7 @@ const routes: Routes = [
         HttpClientModule,
         FormsModule
     ],
-  providers: [HttpClient],
+  providers: [HttpClient, Document],
   bootstrap: [AppComponent]
 })
 export class AppModule {

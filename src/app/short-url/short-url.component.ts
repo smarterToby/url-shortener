@@ -12,7 +12,8 @@ export class ShortUrlComponent implements OnInit {
   constructor(
     private router: Router,
     private service: DataService,
-    private activedRoute: ActivatedRoute
+    private activedRoute: ActivatedRoute,
+    private document: Document
   ) { }
 
 
@@ -22,12 +23,13 @@ export class ShortUrlComponent implements OnInit {
     this.service.updateClicks(urlToRoute);
 
     this.service.getFullUrl(urlToRoute).subscribe((response: any) => {
-      this.router.navigate(['/'], {skipLocationChange: true}).then(
-        result => {
-          // history.replaceState({}, '', response);
-          window.location.href = response;
-        }
-      );
+      document.location = response.toString();
+      // this.router.navigate(['/'], {skipLocationChange: true}).then(
+      //   result => {
+      //     // history.replaceState({}, '', response);
+      //     window.location.href = response;
+      //   }
+      // );
     });
   }
 
