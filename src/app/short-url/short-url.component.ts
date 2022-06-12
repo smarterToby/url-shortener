@@ -23,13 +23,12 @@ export class ShortUrlComponent implements OnInit {
     this.service.updateClicks(urlToRoute);
 
     this.service.getFullUrl(urlToRoute).subscribe((response: any) => {
-      document.location = response.toString();
-      // this.router.navigate(['/'], {skipLocationChange: true}).then(
-      //   result => {
-      //     // history.replaceState({}, '', response);
-      //     window.location.href = response;
-      //   }
-      // );
+
+      if (response.error ===  'Url not found') {
+        this.router.navigate(['/404/' + urlToRoute]);
+      }else {
+        document.location = response.toString();
+      }
     });
   }
 

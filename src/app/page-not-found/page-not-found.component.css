@@ -1,0 +1,51 @@
+#text-background {
+  font-size: 20vw;
+  font-weight: 700;
+  -webkit-background-clip: text;
+  color: transparent;
+  background-image: url(/assets/images/light.jpg);
+  background-size: cover;
+  filter: brightness(80%);
+  user-select: none;
+
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+#error-message {
+  font-family: Calibri, sans-serif;
+  font-weight: bold;
+  font-size: 4vw;
+
+}
+
+#text-paragraph {
+  font-family: Calibri, sans-serif;
+  text-align: center;
+  font-size: 1.2em;
+  max-width: 450px;
+  min-width: 252.547px;
+}
+
+#all {
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  align-items: center;
+}
+
+button {
+  margin: 1em;
+  font-size: 1.5em;
+  background-image: url(/assets/images/light.jpg);
+  background-size: revert;
+  filter: brightness(80%);
+  color: #ffffff;
+  font-family: Calibri, sans-serif;
+}
+
+button:hover {
+  transform: scale(1.05);
+  box-shadow: 3px 3px 8px silver;
+}

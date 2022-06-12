@@ -10,11 +10,13 @@ import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
 import {FormsModule} from "@angular/forms";
 
 const routes: Routes = [
-  {path: 'home', component: CreateLinkComponent},
+  {path: '', component: CreateLinkComponent},
   {path: 'create', redirectTo: 'home'},
+  {path: '404', component: PageNotFoundComponent},
   {path: ':shortUrl', component: ShortUrlComponent},
-  {path: '', redirectTo: '/home', pathMatch: 'full'},
-  {path: '**', component: PageNotFoundComponent }
+  {path: '', redirectTo: '/', pathMatch: 'full'},
+  {path: '**', redirectTo: '404'}
+
 
 ]
 
