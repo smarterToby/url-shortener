@@ -108,5 +108,9 @@ button {
     flex-direction: column;
   }
 
+  #fullUrlLabel {
+    text-align: center;
+  }
+
 }
 
