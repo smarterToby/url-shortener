@@ -10,7 +10,7 @@ import {ClipboardService} from "ngx-clipboard";
 export class CreateLinkComponent implements OnInit {
 
   url!: string;
-  shortUrl: string | undefined;
+  shortUrl: string | undefined = "https://link.tobiasreuss.tech/wwwwwwww";
   clicked: boolean = false;
   copiedToClipboard = false;
 

@@ -1,9 +1,9 @@
 <div id="all">
 
   <div class="group">
-    <label for="fullUrlInput" id="fullUrlLabel">Enter a link you want to shorten:</label>
+    <label for="fullUrlInput" id="fullUrlLabel">Enter the link you want to shorten:</label>
     <div id="addLink">
-      <input type="text" (keydown.enter)="createLink()" id="fullUrlInput" [(ngModel)]="url" placeholder="your-url.com"/>
+      <input type="text" (keydown.enter)="createLink()" id="fullUrlInput" [(ngModel)]="url" placeholder="www.your-url.com"/>
       <button type="button" (click)="createLink()" id="createShortUrl" class="btn btn-danger">Shorten</button>
     </div>
   </div>
