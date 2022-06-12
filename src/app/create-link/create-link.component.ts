@@ -22,13 +22,13 @@ export class CreateLinkComponent implements OnInit {
   }
 
   createLink() {
+    this.clicked = true;
     this.linkService.createUrl(this.url).subscribe(
       (response: any) => {
         this.shortUrl = "https://link.tobiasreuss.tech/" + response.short_url;
         this.clicked = false;
       }
     );
-
   }
 
   copyToClipboard() {

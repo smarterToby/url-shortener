@@ -70,7 +70,7 @@ button {
   border: 1px solid white;
   padding: 1em;
   border-radius: 8px;
-  margin: 2em;
+  margin: 1em;
   min-width: 381px;
   max-width: fit-content;
   display: flex;

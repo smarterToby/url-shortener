@@ -3,12 +3,12 @@
   <div class="group">
     <label for="fullUrlInput" id="fullUrlLabel">Enter a link you want to shorten:</label>
     <div id="addLink">
-      <input type="text" id="fullUrlInput" [(ngModel)]="url" placeholder="your-url.com"/>
-      <button type="submit" (click)="createLink()" id="createShortUrl" class="btn btn-danger">Shorten</button>
+      <input type="text" (keydown.enter)="createLink()" id="fullUrlInput" [(ngModel)]="url" placeholder="your-url.com"/>
+      <button type="button" (click)="createLink()" id="createShortUrl" class="btn btn-danger">Shorten</button>
     </div>
   </div>
 
-  <span *ngIf="clicked">Generating short url</span>
+  <span *ngIf="clicked">One moment please, we are generating your link at the moment</span>
 
   <div class="group" *ngIf="shortUrl">
     <h3>Your shortened link is:</h3>
