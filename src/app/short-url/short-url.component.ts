@@ -27,6 +27,7 @@ export class ShortUrlComponent implements OnInit {
       if (response.error ===  'Url not found') {
         this.router.navigate(['/404']);
       }else {
+        this.service.updateClicks(urlToRoute);
         document.location = response.toString();
       }
     });

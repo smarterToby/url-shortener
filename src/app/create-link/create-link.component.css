@@ -1,24 +1,80 @@
-:root{
-  --dark: #313442;
-  --light: #ffffff;
-}
-
-.app-light {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--light);
-  color: black;
-}
-
-.app-dark {
-  position: absolute;
-  top: 0;
-  left: 0;
-  width: 100%;
-  height: 100%;
-  background-color: var(--dark);
+#all {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  background-color: #313543;
+  height: 100vh;
+  width: 100vw;
   color: white;
+  font-family: Calibri, sans-serif;
+}
+
+
+.filter-white {
+  filter: invert(100%) sepia(100%) saturate(2%) hue-rotate(98deg) brightness(105%) contrast(101%);
+}
+
+label {
+  font-size: 1.5rem;
+  font-weight: bold;
+}
+
+input[type="text"]{
+  height: 3rem;
+  border-color: white;
+  border-radius: 5px;
+  background-color: #313543;
+  color: white;
+  font-size: 1.5rem;
+  font-weight: normal;
+  padding: 0.5rem;
+}
+
+#fullUrlInput {
+  border-radius: 8px 0px 0px 8px;
+}
+
+#shortUrl {
+  text-decoration-style: dotted;
+  color: white;
+  font-size: 1.5rem;
+
+}
+
+button {
+  font-size: 1.2em;
+  border-radius: 0px 8px 8px 0px;
+  height: 3rem;
+}
+
+
+#copyIcon{
+  font-size: 1.5em;
+  color: white;
+  margin-left: 1em;
+  user-select: none;
+  margin-right: 0.2em;
+  height: 1em;
+  cursor: pointer;
+}
+
+#addLink {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
+}
+
+.group {
+  border: 1px solid white;
+  padding: 1em;
+  border-radius: 8px;
+  margin: 2em;
+  min-width: 381px;
+  max-width: fit-content;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
 }

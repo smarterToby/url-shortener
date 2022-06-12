@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {DataService} from "../services/data.service";
-import {Observable} from "rxjs";
+import {ClipboardService} from "ngx-clipboard";
 
 @Component({
   selector: 'app-create-link',
@@ -11,9 +11,11 @@ export class CreateLinkComponent implements OnInit {
 
   url!: string;
   shortUrl: string | undefined;
+  clicked: boolean = false;
 
   constructor(
-    private linkService: DataService
+    private linkService: DataService,
+    private _clipboardService: ClipboardService
   ) { }
 
   ngOnInit(): void {
@@ -22,10 +24,14 @@ export class CreateLinkComponent implements OnInit {
   createLink() {
     this.linkService.createUrl(this.url).subscribe(
       (response: any) => {
-        this.shortUrl = response.short_url;
+        this.shortUrl = "https://link.tobiasreuss.tech/" + response.short_url;
+        this.clicked = false;
       }
     );
 
   }
 
+  copyToClipboard() {
+    this._clipboardService.copy(this.shortUrl!);
+  }
 }

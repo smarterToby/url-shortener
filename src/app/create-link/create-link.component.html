@@ -1,12 +1,22 @@
-<div class="app-light" >
+<div id="all">
 
-  <label for="fullUrl">URL:</label>
-  <input type="text" id="fullUrl" [(ngModel)]="url"/>
+  <div class="group">
+    <label for="fullUrlInput" id="fullUrlLabel">Enter a link you want to shorten:</label>
+    <div id="addLink">
+      <input type="text" id="fullUrlInput" [(ngModel)]="url" placeholder="your-url.com"/>
+      <button type="submit" (click)="createLink()" id="createShortUrl" class="btn btn-danger">Shorten</button>
+    </div>
+  </div>
 
+  <span *ngIf="clicked">Generating short url</span>
 
-  <button type="submit" (click)="createLink()">Short URL</button>
-  <br>
+  <div class="group" *ngIf="shortUrl">
+    <h3>Your shortened link is:</h3>
+    <div>
+    <img (click)="copyToClipboard()" src="assets/images/copy.svg" alt="copy-icon" id="copyIcon" class="filter-white">
+    <a href="{{shortUrl}}" target="_blank" id="shortUrl">{{shortUrl}}</a>
+    </div>
+  </div>
 
-  <span *ngIf="shortUrl">{{shortUrl}}</span>
 
 </div>
