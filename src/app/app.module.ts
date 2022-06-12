@@ -7,7 +7,7 @@ import {CreateLinkComponent} from './create-link/create-link.component';
 import {PageNotFoundComponent} from './page-not-found/page-not-found.component';
 import { ShortUrlComponent } from './short-url/short-url.component';
 import {HttpClient, HttpClientModule, HttpHandler} from "@angular/common/http";
-import {FormsModule} from "@angular/forms";
+import {FormsModule, ReactiveFormsModule} from "@angular/forms";
 import {ClipboardModule} from "ngx-clipboard";
 
 const routes: Routes = [
@@ -32,7 +32,8 @@ const routes: Routes = [
     RouterModule,
     HttpClientModule,
     FormsModule,
-    ClipboardModule
+    ClipboardModule,
+    ReactiveFormsModule
   ],
   providers: [HttpClient, Document],
   bootstrap: [AppComponent]

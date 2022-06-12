@@ -1,12 +1,17 @@
 <div id="all">
+  <form [formGroup]="urlGroup" (ngSubmit)="createLink()" novalidate>
+    <div class="group">
+      <label for="fullUrlInput" id="fullUrlLabel">Enter the link you want to short:</label>
+      <div id="addLink">
+        <input type="text" (keydown.enter)="createLink()" id="fullUrlInput" [(ngModel)]="url" placeholder="www.your-url.com" formControlName="url"/>
+        <button type="submit" id="createShortUrl" class="btn btn-danger">Shorten</button>
+      </div>
+      <span *ngIf="!urlGroup.valid && urlGroup.touched" style="color: #dd3544">Please provide a correct url</span>
 
-  <div class="group">
-    <label for="fullUrlInput" id="fullUrlLabel">Enter the link you want to shorten:</label>
-    <div id="addLink">
-      <input type="text" (keydown.enter)="createLink()" id="fullUrlInput" [(ngModel)]="url" placeholder="www.your-url.com"/>
-      <button type="button" (click)="createLink()" id="createShortUrl" class="btn btn-danger">Shorten</button>
+
+
     </div>
-  </div>
+  </form>
 
   <div class="spinner-border text-light" role="status" *ngIf="clicked">
     <span class="visually-hidden">Loading...</span>
