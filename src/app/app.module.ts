@@ -16,8 +16,6 @@ const routes: Routes = [
   {path: ':shortUrl', component: ShortUrlComponent},
   {path: '', redirectTo: '/', pathMatch: 'full'},
   {path: '**', redirectTo: '404'}
-
-
 ]
 
 @NgModule({

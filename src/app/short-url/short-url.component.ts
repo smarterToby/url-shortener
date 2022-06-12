@@ -25,7 +25,7 @@ export class ShortUrlComponent implements OnInit {
     this.service.getFullUrl(urlToRoute).subscribe((response: any) => {
 
       if (response.error ===  'Url not found') {
-        this.router.navigate(['/404/' + urlToRoute]);
+        this.router.navigate(['/404']);
       }else {
         document.location = response.toString();
       }
