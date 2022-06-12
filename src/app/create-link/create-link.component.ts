@@ -12,6 +12,7 @@ export class CreateLinkComponent implements OnInit {
   url!: string;
   shortUrl: string | undefined;
   clicked: boolean = false;
+  copiedToClipboard = false;
 
   constructor(
     private linkService: DataService,
@@ -33,5 +34,15 @@ export class CreateLinkComponent implements OnInit {
 
   copyToClipboard() {
     this._clipboardService.copy(this.shortUrl!);
+    this.copiedToClipboard = true;
+    setTimeout(() => {
+      this.copiedToClipboard = false;
+    }, 5000);
   }
+
+  reset() {
+    this.url = "";
+    this.shortUrl = undefined;
+  }
+
 }

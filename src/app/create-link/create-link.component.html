@@ -8,7 +8,10 @@
     </div>
   </div>
 
-  <span *ngIf="clicked">One moment please, we are generating your link at the moment</span>
+  <div class="spinner-border text-light" role="status" *ngIf="clicked">
+    <span class="visually-hidden">Loading...</span>
+  </div>
+  <span *ngIf="clicked" style="margin-top: 0.5em">Loading...</span>
 
   <div class="group" *ngIf="shortUrl">
     <h3>Your shortened link is:</h3>
@@ -17,6 +20,9 @@
     <a href="{{shortUrl}}" target="_blank" id="shortUrl">{{shortUrl}}</a>
     </div>
   </div>
+
+  <span (click)="reset()" *ngIf="shortUrl" style="text-decoration: underline; color: #dd3544; cursor: pointer;">Short a new url</span>
+  <span *ngIf="copiedToClipboard" style="color: #878ca1">Copied to clipboard</span>
 
 
 </div>
